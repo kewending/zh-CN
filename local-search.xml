@@ -4,69 +4,25 @@
   
   
   <entry>
-    <title>Model-Based Reinforcement Learning: A Survey</title>
-    <link href="/2022/06/26/model-based%20reinforcement%20learning/"/>
-    <url>/2022/06/26/model-based%20reinforcement%20learning/</url>
+    <title>第一篇博客</title>
+    <link href="/2023/05/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2023/05/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<p>This blog is my brief summary about this survery paper. <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Moerland, T. M., Broekens, J., Plaat, A., & Jonker, C. M. (2022). Model-based Reinforcement Learning: A Survey (No. arXiv:2006.16712). arXiv. doi: 10.48550/arXiv.2006.16712">[1]</span></a></sup></p><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><img src="/img/Planning-and-Learning.png"><br><strong>The above figure shows an overview of possible algorithmic connections between planning and learning.</strong> </p><ul><li>(a) plan over a learned model</li><li>(b) use information from a policy&#x2F;value function to improve planning</li><li>(c) use the result from planning to train the policy&#x2F;value function</li><li>(d) act in the environment based on the planning outcome</li><li>(e) act in the environment based on policy&#x2F;value function</li><li>(f) train the policy&#x2F;value function based on experience</li><li>(g) train the model based on experience</li></ul><h4 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h4><p><em>Reversible access</em> the MDP dynamics is repeatedly planning forward from the same state (Planning methods, humans plan in their mind).</p><p><em>Irreversible access</em> to the MDP means that the agents has to move forward from the resulting next state after executing a particular action. (Model-free methods, human act in the real world)</p><p><em>Model</em> is a form of reverisble access to the MDP dynamics (known or learned)</p><p><em>Local solution</em> only stores the solution for a subset of all states. (Planning method)</p><p><em>Global solution</em> stores the value&#x2F;policy function for the entire state space. (Learning method)</p><p><em>Planning</em> is a class of MDP algorithms that 1) use a model and 2) store a local solution. </p><p><em>Reinforcement learning</em> is a class of MDP algorithms that store a global solution.</p><p><em>Model-based reinforcement learning</em> is a class of MDP algorithms that 1) use a model, and 2) store a global solution.</p><h3 id="Categories-of-planning-learning-integration"><a href="#Categories-of-planning-learning-integration" class="headerlink" title="Categories of planning-learning integration"></a>Categories of planning-learning integration</h3><ul><li>Model-based RL with a learned model, where we both learn a model and learn a global solution. (Dyna)</li><li>Model-based RL with a known model, where we plan over a known model, and only use learning for the global solution. (AlphaZero, Dynamic Programming)</li><li>Planning over a learned model, where we do learn a model, but subsequently locally plan over it, without learning a global solution.</li></ul><h3 id="Dynamics-Model-Learning"><a href="#Dynamics-Model-Learning" class="headerlink" title="Dynamics Model Learning"></a>Dynamics Model Learning</h3><p>Model learning is essentially a supervised learning problem<br><em>Dynamics models</em> is to learn the transition probabilities between states.</p><h4 id="Type-of-model"><a href="#Type-of-model" class="headerlink" title="Type of model"></a>Type of model</h4><ul><li>Forward model: $(s_t,a_t)\rightarrow s_{t+1}$<br>  Most commeon model can be used for lookahead planning.</li><li>Backward&#x2F;revers model: $s_{t+1}\rightarrow (s_t,a_t)$<br> Plan in the backwards direcion (Prioritized sweeping)</li><li>Inverse model: $(s_t,s_{t+1})\rightarrow a_t$<br>  Useful in representation learning (RRT planning)</li></ul><h4 id="Type-of-approximation-method"><a href="#Type-of-approximation-method" class="headerlink" title="Type of approximation method"></a>Type of approximation method</h4><ul><li><em>Parametric</em>: The number of parameters is independent of the size of the observed dataset.<ul><li><em>Exact</em>: For a discrete MDP (or a discretized version of a continuous MDP), a tabular method maintains a separate entry for every possible transition. However, they don not scale to high-dimensional problems (the curse of dimensionlity)<ul><li>Tabular maximum likelihood model<br>  $$T(s^\prime|s,a) &#x3D; \frac{n(s,a,s^\prime)}{\sum_{s^\prime} n(s,a,s^\prime)}$$</li></ul></li><li><em>Approximate</em>: Function approximation methods lower the required number of parameters and allow for generalization. <ul><li>Linear Regression</li><li>Dynamic Bayesian networks (DBN)</li><li>Nearst Neighbours</li><li>Random forests</li><li>Support vector regression</li><li>Neural Networks</li></ul></li></ul></li><li><em>Non-parametric</em>: Directly store and use the data to represent the model. And the computational complexity of non-parametric methods depends on the size of the dataset. So less applicable to high-dimension problems where normal require more data<ul><li><em>Exact</em>: Replay buffers</li><li><em>Approximate</em>: Gaussian processes</li></ul></li></ul><h4 id="The-region-of-state-space"><a href="#The-region-of-state-space" class="headerlink" title="The region of state space"></a>The region of state space</h4><ul><li>Global: Approcimate the dynamics over the entire state space. (Main approach)</li><li>Local: Locally approximate the dynamics and discard the local model after  planning over it.</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Moerland, T. M., Broekens, J., Plaat, A., &amp; Jonker, C. M. (2022). Model-based Reinforcement Learning: A Survey (No. arXiv:2006.16712). arXiv. doi: 10.48550&#x2F;arXiv.2006.16712<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    <content type="html"><![CDATA[<p>这是我的第一篇中文博客</p>]]></content>
     
     
     <categories>
       
-      <category>Reinforcement Learning</category>
+      <category>生活</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Model-Based</tag>
-      
-      <tag>RL</tag>
-      
-      <tag>Paper</tag>
+      <tag>第一篇</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>First Post</title>
-    <link href="/2022/06/25/first-post/"/>
-    <url>/2022/06/25/first-post/</url>
-    
-    <content type="html"><![CDATA[<p>This is my first post in the blog</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Life</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>tag1</tag>
-      
-      <tag>tag2</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2022/06/25/hello-world/"/>
-    <url>/2022/06/25/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>OR simply</p><p>Create a new markdowm file in the _posts folder.</p><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
